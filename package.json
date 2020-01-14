@@ -1,0 +1,19 @@
+{
+  "name": "sms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "appStart": "electron .",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^7.1.7",
+    "jquery": "^3.4.1",
+    "knex": "^0.20.7",
+    "sqlite3": "^4.1.1"
+  }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SMS</title>
+    <link rel="stylesheet" href="../../vendor/semantic-ui/semantic.min.css">
+    <link rel="stylesheet" href="index.min.css">
+</head>
+
+<body style="background-color: #F6F8FA;">
+
+    <header>
+        Select a option to begin
+    </header>
+    <section class="app-menu">
+        <div class="menu-item" id="btnShowSendSMSModal">
+            <div class="icon-container"><i class="icon mobile alternate green"></i></div>
+            <p class="green">Send SMS</p>
+        </div>
+        <div class="menu-item" id="btnShowNewClientModal">
+            <div class="icon-container"><i class="icon user plus blue"></i></div>
+            <p class="blue">Add Clients</p>
+        </div>
+        <div class="menu-item" id="btnCheckBalance">
+            <div class="icon-container"><i class="icon fighter jet orange"></i></div>
+            <p class="orange">Check Balance</p c>
+        </div>
+        <div class="menu-item" id="btnShowBuyCreditWin">
+            <div class="icon-container"><i class="icon money bill alternate outline red"></i></div>
+            <p class="red">Buy Credit</p>
+        </div>
+    </section>
+
+    <!-- New Client Modal -->
+    <div class="ui modal" id="newClientModal">
+        <div class="header">
+            New Client
+        </div>
+        <div class="content">
+            <form class="ui form">
+                <div class="field">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Fullname Name" id="txtAddClientFullname">
+                </div>
+                <div class="field">
+                    <label>Phone Number</label>
+                    <input type="text" placeholder="Phone Number" id="txtAddClientPhone">
+                </div>
+
+                <div class="ui error message">
+                    <div class="header">Error</div>
+                    <p>Fullname error or Invalid phone number. Phone number should be 10</p>
+                </div>
+
+                <div class="ui success message">
+                    <div class="header">Success</div>
+                    <p>Client added successfully</p>
+                </div>
+
+                <div class="error-flag hide" id="clientExistsError">
+                    <p>Client with the same number already exists</p>
+                </div>
+
+                <button class="ui button blue" type="button" id="btnAddClient">Add</button>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui button deny red">Close</div>
+        </div>
+    </div>
+
+    <!-- Credit Balance Modal -->
+    <div class="ui modal mini" id="checkBalanceModal">
+        <div class="header">
+            Credit Balance
+        </div>
+        <div class="content">
+            <div class="ui segment">
+                <div class="ui active dimmer">
+                    <div class="ui text loader">Checking Balance</div>
+                </div>
+            </div>
+            <div id="balanceValueContainer" class="hide">
+                <div id="balanceVal"></div>
+                <div id="bonusVal"></div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui button deny approve">Close</div>
+        </div>
+    </div>
+
+    <!-- Send SMS Modal -->
+    <div class="ui modal" id="sendSMSModal">
+        <div class="header">
+            Send SMS
+        </div>
+        <div class="content scrolling">
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <form class="ui form">
+                        <div class="field fluid">
+                            <label>Message</label>
+                            <textarea id="message"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="eight wide column">
+                    <form class="ui form">
+                        <div class="field">
+                            <label>Client to send message to</label>
+                            <div class="ui search-wrapper">
+                                <div class="ui icon input">
+                                    <input class="prompt" type="text" id="txtSearchClient"
+                                        placeholder="Search for clients">
+                                    <i class="search icon"></i>
+                                </div>
+                                <div id="clientsSearchList" class="clientsSearchList hide"></div>
+                            </div>
+                        </div>
+                        <button class="ui button blue" type="button" id="btnSendClient">Send</button>
+                    </form>
+                </div>
+                <div class="sixteen wide column">
+                    <p>Clients to send message to</p>
+                    <div class="selected-clients" id="selectedClientsContainer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui button approve black" id="btnCloseSMSModal">Close</div>
+        </div>
+    </div>
+
+    <footer>
+        Powered by Plainblue Corp. (0542462657)
+    </footer>
+
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script src="../../vendor/jquery-3.4.1.min.js"></script>
+    <script src="../../vendor/semantic-ui/semantic.min.js"></script>
+    <script type="module" src="index.js"></script>
+    <script>
+        if (window.module) module = window.module
+    </script>
+</body s>
+
+</html>
